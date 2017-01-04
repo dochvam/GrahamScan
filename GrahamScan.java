@@ -7,10 +7,12 @@ import java.util.*;
 /**
  * @author knappa
  */
-public class GrahmScan {
+public class GrahamScan {
 
 	public static void main(String[] args) {
-		ArrayList<Point2D> points = GenericPointGenerator.getPoints(500);
+		int x = 500;
+		if (args.length > 0) x = Integer.parseInt(args[0]);
+		ArrayList<Point2D> points = GenericPointGenerator.getPoints(x);
 
 		//find the leftmost point
 		double leftmost = 0;
@@ -71,7 +73,7 @@ public class GrahmScan {
 			else{
 				q = stack.pop();
 			}
-			if (loc == 500){
+			if (loc == points.size()){
 				complete = true;
 				stack.push(q);
 				stack.push(points.get(0));
@@ -127,7 +129,7 @@ public class GrahmScan {
 	public static void drawPoints(ArrayList<Point2D> points){
 		StdDraw.clear();
 		StdDraw.setPenRadius(0.01);
-		for (int i = 0; i<500; i++) {
+		for (int i = 0; i<points.size(); i++) {
 			if (i == 0) StdDraw.setPenColor(Color.RED);
 			else StdDraw.setPenColor(Color.BLACK);
 			StdDraw.point(points.get(i).getX(), points.get(i).getY());
