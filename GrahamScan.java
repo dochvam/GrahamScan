@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.*;
 
-/**
- * @author knappa
- */
 public class GrahamScan {
 
 	public static void main(String[] args) {
